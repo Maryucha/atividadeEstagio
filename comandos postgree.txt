@@ -1,0 +1,43 @@
+CREATE TABLE public.en_filme
+(
+    id serial,
+    data_lanc date,
+    nome character varying COLLATE pg_catalog."default",
+    descricao character varying COLLATE pg_catalog."default",
+    CONSTRAINT en_filme_pkey PRIMARY KEY (id)
+)
+
+
+CREATE TABLE public.en_aluguel
+(
+    id serial,
+    id_cliente integer NOT NULL,
+    data_aluguel date NOT NULL,
+    valor double precision,
+    CONSTRAINT aluguel_pkey PRIMARY KEY (id),
+    CONSTRAINT en_aluguel_id_cliente_fkey FOREIGN KEY (id_cliente)
+        REFERENCES public.en_cliente (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+)
+
+CREATE TABLE public.en_cliente
+(
+    id serial,
+    nome character varying COLLATE pg_catalog."default",
+    CONSTRAINT en_cliente_pkey PRIMARY KEY (id)
+)
+
+CREATE TABLE public.re_filme_aluguel
+(
+    id_filme integer NOT NULL,
+    id_aluguel integer NOT NULL,
+    CONSTRAINT re_filme_aluguel_id_aluguel_fkey FOREIGN KEY (id_aluguel)
+        REFERENCES public.en_aluguel (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION,
+    CONSTRAINT re_filme_aluguel_id_filme_fkey FOREIGN KEY (id_filme)
+        REFERENCES public.en_filme (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+)
