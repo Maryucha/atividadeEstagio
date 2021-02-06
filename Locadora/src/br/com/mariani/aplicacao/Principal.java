@@ -14,6 +14,7 @@ public class Principal {
     private static Integer MENU = 0;
     private static GerenciaCliente GCLIENTE = new GerenciaCliente();
     private static GerenciaFilme GFILME = new GerenciaFilme();
+    private static GerenciaAluguel GALUGUEL = new GerenciaAluguel();
 
     public static void main(String[] args) throws SQLException, ParseException {
 
@@ -39,7 +40,7 @@ public class Principal {
                        GFILME.menuFilme();
                         break;
                     case 3:
-                        
+                        GALUGUEL.menuAluguel();
                         break;
                     case 4:
                        System.out.println("Até mais!");

@@ -1,6 +1,6 @@
 package br.com.mariani.models;
 
-import java.util.Date;
+import java.sql.Date;
 import java.util.Objects;
 
 /**
@@ -8,10 +8,9 @@ import java.util.Objects;
  * @author maryucha
  */
 public class Aluguel {
-    
-    
+
     private int id;
-    private Cliente cliente;
+    private int clienteId;
     private Date dataAluguel;
     private double valor;
 
@@ -23,13 +22,14 @@ public class Aluguel {
         this.id = id;
     }
 
-    public Cliente getCliente() {
-        return cliente;
+    public int getClienteId() {
+        return clienteId;
     }
 
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
+    public void setClienteId(int clienteId) {
+        this.clienteId = clienteId;
     }
+    
 
     public Date getDataAluguel() {
         return dataAluguel;
@@ -51,7 +51,7 @@ public class Aluguel {
     public int hashCode() {
         int hash = 7;
         hash = 97 * hash + this.id;
-        hash = 97 * hash + Objects.hashCode(this.cliente);
+        hash = 97 * hash + Objects.hashCode(this.clienteId);
         hash = 97 * hash + Objects.hashCode(this.dataAluguel);
         hash = 97 * hash + (int) (Double.doubleToLongBits(this.valor) ^ (Double.doubleToLongBits(this.valor) >>> 32));
         return hash;
@@ -75,7 +75,7 @@ public class Aluguel {
         if (Double.doubleToLongBits(this.valor) != Double.doubleToLongBits(other.valor)) {
             return false;
         }
-        if (!Objects.equals(this.cliente, other.cliente)) {
+        if (!Objects.equals(this.clienteId, other.clienteId)) {
             return false;
         }
         if (!Objects.equals(this.dataAluguel, other.dataAluguel)) {
@@ -83,6 +83,8 @@ public class Aluguel {
         }
         return true;
     }
-    
-    
+    public void imprimeAluguel(){
+        System.out.println("ID ["+this.getId()+"] | ID_CLIENTE ["+this.getClienteId()+"] | DATA_LOCAÇÃO ["+this.getDataAluguel()+"] | VALOR ["+this.getValor()+"]");
+    }
+
 }

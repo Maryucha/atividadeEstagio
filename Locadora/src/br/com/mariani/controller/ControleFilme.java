@@ -28,8 +28,6 @@ public class ControleFilme {
         
         System.out.print("Digite a Data de Lançamento: ");
         String dataEntrada = ENTRADA.nextLine();
-       
-        
         Date dataFormatada = formata.parse(dataEntrada);       
         filmeNovo.setDataLancamento(ConversorData.converterUtilToSql(dataFormatada));
         
