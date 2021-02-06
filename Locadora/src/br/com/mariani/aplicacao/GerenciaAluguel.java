@@ -2,6 +2,7 @@ package br.com.mariani.aplicacao;
 
 
 import br.com.mariani.controller.ControleAluguel;
+import br.com.mariani.controller.ControleFilmesAlugados;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.Scanner;
@@ -42,10 +43,10 @@ public class GerenciaAluguel {
                         ControleAluguel.buscarLocacao();
                         break;
                     case 4:
-                        ControleAluguel.entregarLocacao();
+                        ControleAluguel.entregarLocacao(ControleAluguel.buscarLocacao());
                         break;
                     case 5:
-                        ControleAluguel.gerarMulta();
+                        
                         break;    
                     case 6:
                         System.out.println("Voltar ao menu!");

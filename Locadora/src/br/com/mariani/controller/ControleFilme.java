@@ -19,7 +19,7 @@ public class ControleFilme {
 
     private static List<Filme> listaFilmes = new ArrayList<>();
     private static final Scanner ENTRADA = new Scanner(System.in);
-    static SimpleDateFormat formata = new SimpleDateFormat("yyyy/MM/dd"); 
+    static SimpleDateFormat formata = new SimpleDateFormat("dd/MM/yyyy"); 
 
     /*----------------------------------------------------------*/
     public static Filme addFilmeNovo() throws SQLException, ParseException {
